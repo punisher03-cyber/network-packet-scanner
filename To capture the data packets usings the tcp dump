@@ -1,0 +1,16 @@
+# At first we have to install tcp dump
+sudo apt install tcpdump                                 
+# To identify network interfaces
+sudo ifconfig
+sudo tcpdump -D         
+# Starting of packet capture in our network
+sudo tcpdump -i eth0 -v -c5
+sudo tcpdump -i eth0 -nn
+# Capturing data packets in HTTP port
+sudo tcpdump -i eth0 -nn -c9 port 80 
+# Capture data packets storing in file name
+sudo tcpdump -i eth0 -nn -c9 port 80 -w capture.pcap &
+# To read the captutred data from a stored file
+sudo tcpdump -nn -r capture.pcap -v
+# Display the data packets using hexa decimal ASCII format
+sudo tcpdump -nn -r capture.pcap -X
